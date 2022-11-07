@@ -21,9 +21,12 @@ function showCharacter(index) {
    
     document.getElementById("home").style.display = "none"
     document.getElementById("character_sheet").style.display = "block"
+
     document.getElementById("name").value = character[index].name 
     document.getElementById("picture").src = character[index].scr
     document.getElementById("bottom-line").style.background = character[index].color
+    document.getElementById("kp").value = character[index].kp
+
    
 }
 
