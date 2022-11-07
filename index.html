@@ -5,9 +5,106 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character-sheet helper</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2e51cacbb3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/character.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Character-sheet helper</h1>
+    <div class="d-flex flex-column justify-content-center align-items-center" id="body">
+
+        <div id="home">
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h1 class="d-flex title mt-5">Character-sheet helper</h1>
+        
+                <!-- Tanana Card -->
+                <div onclick="showCharacter(0)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
+                    <div class="d-flex flex-row rounded">
+                        <div class="d-flex border-right">
+                            <img class="tanana-picture" src="./resources/tanana.jpg" alt="Tanana.jpg">
+                        </div>
+                        <div class="d-flex flex-column card-text">
+                            <div class="d-flex bg-purple flex-column title-container justify-content-center align-items-center text-white py-2">
+                                <h5>Tanana</h5>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- Character Sheet -->
+        <div id="character_sheet">
+            <div class="d-flex flex-column mt-4 justify-content-center align-items-center">
+                <div><i id="home_button" class="fa-solid fa-house fa-2xl pointer" onclick="showHome()"></i></div>
+                <div class="d-flex flex-row mt-5">
+                    <div class="d-flex mx-4 "><img class="w-50 d-flex picture rounded border border-dark" id="picture"></img></div>
+                    <div class="d-flex flex-column justify-content-center w-100">
+                        <input class="w-100 title border-0 title-box d-flex" id="name" readonly></input>
+                        <div class="w-75 d-flex line" id="bottom-line"></div>
+                    </div>
+                </div>
+                <div class="d-flex mt-4 justify-content-center">
+                    <img class="person-icon pos-abs" src="./resources/person-solid.svg" alt="person-solid">
+
+                    <div class="pos-rel d-flex flex-row align-items-center head">
+                        <div class="d-flex target-line-head bg-dark" ></div>
+                        <input class="border-0 value-box" value="12"></input>
+                    </div>
+
+             
+
+                    
+
+
+
+                    <!-- <div class="d-flex target-line-left-arm bg-dark pos-rel" ></div>
+                    <div class="d-flex target-line-right-arm bg-dark pos-rel" ></div>
+                    <div class="d-flex target-line-left-leg bg-dark pos-rel" ></div>
+                    <div class="d-flex target-line-right-leg bg-dark pos-rel" ></div> -->
+                    
+                </div>
+                
+
+
+                <!-- <div class="d-flex flex-row">
+                    <h1 class="title" >KP:</h1>
+                    <input class="title border-0 value-box" id="kp" readonly></input>
+                    <div class="d-flex flex-column">
+                        <button onclick="addKp(0)">+</button>
+                        <button onClick="removeKp()">-</button>
+                    </div>
+                    
+                </div> -->
+
+
+
+            </div>
+
+            
+        </div>
+ 
+    
+     
+    </div>
+
+
+ 
+
+
+    <script src="./js/DOM.js"></script>
     
 </body>
 </html>

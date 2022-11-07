@@ -1,0 +1,46 @@
+.character-card {
+    width: 20rem;
+}
+
+.title-container {
+    width: inherit;
+    height: 100%;
+}
+
+.information-container {
+    width: inherit;
+    height: 4rem;
+}
+
+.card-text {
+    width: 100%;
+}
+
+
+.title {
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 4px 4px 4px #aaa;
+    font-size: 2rem !important;
+}
+
+body {
+    background-color: #EFE6DD;
+}
+
+.bg-purple {
+    background-color: #9F2B68;
+}
+
+#body {
+    
+    /* min-height: 100vh;
+    position: relative; */
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+.pos-rel {
+    position: relative;
+}
