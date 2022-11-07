@@ -1,14 +1,37 @@
 
 
-const javaDialog = document.getElementById('java-dialog');
+const healDialog = document.getElementById('heal-dialog');
 
-function openJavaDialog() {
-  javaDialog.showModal();
+function openHealDialog() {
+  healDialog.showModal();
 }
 
-function closeJavaDialog() {
-  javaDialog.close();
+function closeHealDialog() {
+  healDialog.close();
 }
+
+const damageDialog = document.getElementById('damage-dialog');
+
+function openDamageDialog() {
+  damageDialog.showModal();
+}
+
+function closeDamageDialog() {
+  damageDialog.close();
+}
+
+const statsDialog = document.getElementById('stats-dialog');
+
+function openStatsDialog() {
+  statsDialog.showModal();
+}
+
+function closeStatsDialog() {
+  statsDialog.close();
+}
+
+
+
 
 
 
