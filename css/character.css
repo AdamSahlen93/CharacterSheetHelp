@@ -24,59 +24,13 @@
     margin-right: -40px;
 }
 
-.body-display {
-    width: 100vw;
+.checkbox {
+    height: 20px;
+    width: 20px;
+    margin-right: 0.3rem;
 }
 
-.person-icon {
-    height: 10rem !important;
-    width: 5rem !important;
+.mr-6 {
+    margin-right: 3.4rem;
 }
 
-.target-line {
-    height: 2px !important;
-    width: 50px;
-}
-
-.head {
-    top: 10px;
-    left: 270px;
-}
-
-.chest {
-    left: 110px;
-    top: 40px;
-}
-
-.stomach {
-    left: 110px;
-    top: 80px;
-}
-
-.right-arm {
-    left: -70px;
-    top: 60px;
-}
-
-.left-arm {
-    top: 60px;
-}
-
-.right-leg {
-    left: -100px;
-    top: 120px;
-}
-
-.left-leg {
-    left: -270px;
-    top: 120px;
-}
-
-
-.value-box {
-    width: 1.5rem;
-}
-
-.bodypart-grid {
-    margin-top: 10rem;
-}

@@ -120,57 +120,64 @@
                         <input class="w-100 title border-0 title-box d-flex" id="firstname" readonly></input>
                         <input class="w-100 title border-0 title-box d-flex" id="lastname" readonly></input>
                         <div class="w-75 d-flex line" id="bottom-line"></div>
-                        <div class="d-flex flex-row w-100 align-items-center">
-                            <h6 class="w-50 title am-right-4 mt-2">KP:</h6>
-                            <input class="w-50 title border-0 title-box d-flex" id="kp" readonly></input>
-                        </div>
+
                         
                     </div>
                 </div>
-                <div class="d-flex mt-4 justify-content-center body-display">
-                    <img class="person-icon pos-abs" src="./resources/person-solid.svg" alt="person-solid">
 
-                    <div class="pos-rel d-flex flex-row align-items-center head">
+                <div class="d-flex flex-row mt-2">
+                    <h5 class="mr-5">Total Kp</h5>
+                    <div id="kp"></div>
+                </div>
+
+                <div class="d-flex flex-column my-2 justify-content-center border border-dark bg-white p-4 rounded">
+
+
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-5">Huvud</h6>
+                        <div id="head"></div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-4">Bröstkorg</h6>
+                        <div id="chest"></div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-6">Mage</h6>
+                        <div id="stomach"></div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-4">Högerarm </h6>
+                        <div id="rigth-arm"></div>
+                    </div>
+                    
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-3">Vänsterarm</h6>
+                        <div id="left-arm"></div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-4">Högerben</h6>
+                        <div id="rigth-leg"></div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <h6 class="mr-3">Vänsterben</h6>
+                        <div id="left-leg"></div>
+                    </div>
+<!--                     
+                    <div class=" d-flex flex-row align-items-center head">
                         <div class="d-flex target-line bg-dark" ></div>
                         <input class="border-0 value-box" id="head"></input>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center chest">
-                        <input class="border-0 value-box" id="chest"></input>
-                        <div class="d-flex target-line bg-dark" ></div>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center stomach">
-                        <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" id="stomach"></input>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center right-arm">
-                        <input class="border-0 value-box" id="right-arm"></input>
-                        <div class="d-flex target-line bg-dark" ></div>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center left-arm">
-                        <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" id="left-arm"></input>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center right-leg">
-                        <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" id="right-leg"></input>
-                    </div>
-
-                    <div class="pos-rel d-flex flex-row align-items-center left-leg">
-                        <input class="border-0 value-box" id="left-leg"></input>
-                        <div class="d-flex target-line bg-dark" ></div>
-                    </div>
-
-                    <!-- <div class="d-flex target-line-left-arm bg-dark pos-rel" ></div>
-                    <div class="d-flex target-line-right-arm bg-dark pos-rel" ></div>
-                    <div class="d-flex target-line-left-leg bg-dark pos-rel" ></div>
-                    <div class="d-flex target-line-right-leg bg-dark pos-rel" ></div> -->
-                    
+                    </div> -->
+ 
                 </div>
+                
+               
+                
 
                 <div class="d-flex flex-row bodypart-grid">
                     <button type="button" class="btn btn-success mx-2" onclick="openHealDialog()">Hela</button>
