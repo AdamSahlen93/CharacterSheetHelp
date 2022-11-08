@@ -1,5 +1,7 @@
 showHome()
 
+let session = 0;
+
 let character = [
     {
         "firstname": "Tanana",
@@ -91,14 +93,119 @@ function showCharacter(index) {
     document.getElementById("lastname").value = character[index].lastname 
     document.getElementById("picture").src = character[index].scr
     document.getElementById("bottom-line").style.background = character[index].color
-    document.getElementById("kp").value = character[index].kp
-    document.getElementById("head").value = character[index].head
-    document.getElementById("chest").value = character[index].chest
-    document.getElementById("stomach").value = character[index].stomach
-    document.getElementById("right-arm").value = character[index].rightarm
-    document.getElementById("left-arm").value = character[index].leftarm
-    document.getElementById("right-leg").value = character[index].rightleg
-    document.getElementById("left-leg").value = character[index].leftleg
+
+
+    
+    if(session === 0) {
+        let kpBox = document.getElementById("kp")
+        for (i=0; i<character[index].kp; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            kpBox.appendChild(input)
+            
+        }
+        let headBox = document.getElementById("head")
+        for (i=0; i<character[index].head; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            headBox.appendChild(input)
+            
+        }
+        let chestBox = document.getElementById("chest")
+        for (i=0; i<character[index].chest; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            chestBox.appendChild(input)
+        }
+        let stomachBox = document.getElementById("stomach")
+        for (i=0; i<character[index].stomach; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            stomachBox.appendChild(input)
+        }
+        let rightarmBox = document.getElementById("rigth-arm")
+        for (i=0; i<character[index].rightarm; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            rightarmBox.appendChild(input)
+        }
+        let leftarmBox = document.getElementById("left-arm")
+        for (i=0; i<character[index].leftarm; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            leftarmBox.appendChild(input)
+        }
+        let rightlegBox = document.getElementById("rigth-leg")
+        for (i=0; i<character[index].rightleg; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            rightlegBox.appendChild(input)
+        }
+        let leftlegBox = document.getElementById("left-leg")
+        for (i=0; i<character[index].leftleg; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox";
+            leftlegBox.appendChild(input)
+        }
+
+        session = 1
+    } 
+
+
+
+
+
+
+    //document.getElementById("chest").value = character[index].chest
+
+
+
+
+
+    // document.getElementById("stomach").value = character[index].stomach
+    // document.getElementById("right-arm").value = character[index].rightarm
+    // document.getElementById("left-arm").value = character[index].leftarm
+    // document.getElementById("right-leg").value = character[index].rightleg
+    // document.getElementById("left-leg").value = character[index].leftleg
+
+    // let table = document.getElementById("basic_stats")
+
+    // var rowHead = table.insertRow(0)
+    // var rowChest = table.insertRow(1)
+    // var rowStomach = table.insertRow(2)
+
+    // var cell1_1 = rowHead.insertCell(0)
+    // var cell1_2 = rowHead.insertCell(1)
+    // var cell2_1 = rowChest.insertCell(0)
+    // var cell2_2 = rowChest.insertCell(1)
+    // var cell3_1 = rowStomach.insertCell(0)
+    // var cell3_2 = rowStomach.insertCell(1)
+
+    // cell1_1.innerHTML = "Head"
+    // cell1_2.innerHTML = character[index].head
+    // cell2_1.innerHTML = "Chest"
+    // cell2_2.innerHTML = character[index].chest
+    // cell3_1.innerHTML = "Stomach"
+    // cell3_2.innerHTML = character[index].stomach
+
+
+
 }
 
 
