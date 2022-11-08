@@ -24,7 +24,6 @@
         <div id="home">
 
             <div class="d-flex flex-column justify-content-center align-items-center">
-                <h1 class="d-flex title mt-5">Character-sheet helper</h1>
         
                 <!-- Tanana Card -->
                 <div onclick="showCharacter(0)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
@@ -40,9 +39,75 @@
     
                     </div>
                 </div>
+
+                <!-- Jens Card -->
+                <div onclick="showCharacter(1)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
+                    <div class="d-flex flex-row rounded">
+                        <div class="d-flex border-right">
+                            <img class="tanana-picture" src="./resources/jens.jpg" alt="Jens.jpg">
+                        </div>
+                        <div class="d-flex flex-column card-text">
+                            <div class="d-flex bg-green flex-column title-container justify-content-center align-items-center text-white py-2">
+                                <h5>Jens</h5>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+
+                <!-- My Card -->
+                <div onclick="showCharacter(2)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
+                    <div class="d-flex flex-row rounded">
+                        <div class="d-flex border-right">
+                            <img class="tanana-picture" src="./resources/my.jpg" alt="My.jpg">
+                        </div>
+                        <div class="d-flex flex-column card-text">
+                            <div class="d-flex bg-red flex-column title-container justify-content-center align-items-center text-white py-2">
+                                <h5>My</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Skritz Card -->
+                <div onclick="showCharacter(3)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
+                    <div class="d-flex flex-row rounded">
+                        <div class="d-flex border-right">
+                            <img class="tanana-picture" src="./resources/crag.jpg" alt="Skritz.jpg">
+                        </div>
+                        <div class="d-flex flex-column card-text">
+                            <div class="d-flex bg-orange flex-column title-container justify-content-center align-items-center text-white py-2">
+                                <h5>Skritz</h5>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+
+                <!-- Torbjörn Card -->
+                <div onclick="showCharacter(4)" class="d-flex flex-column justify-content-center rounded mb-4 pointer shadow character-card mt-4" >
+                    <div class="d-flex flex-row rounded">
+                        <div class="d-flex border-right">
+                            <img class="tanana-picture" src="./resources/torbjörn.jpg" alt="Jens.jpg">
+                        </div>
+                        <div class="d-flex flex-column card-text">
+                            <div class="d-flex bg-brown flex-column title-container justify-content-center align-items-center text-white py-2">
+                                <h5>Torbjörn</h5>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+
+                
+
+
+
+
+
             </div>
             
-
         </div>
 
         <!-- Character Sheet -->
@@ -52,7 +117,8 @@
                 <div class="d-flex flex-row mt-5">
                     <div class="d-flex mx-4 "><img class="w-50 d-flex picture rounded border border-dark" id="picture"></img></div>
                     <div class="d-flex flex-column justify-content-center w-100">
-                        <input class="w-100 title border-0 title-box d-flex" id="name" readonly></input>
+                        <input class="w-100 title border-0 title-box d-flex" id="firstname" readonly></input>
+                        <input class="w-100 title border-0 title-box d-flex" id="lastname" readonly></input>
                         <div class="w-75 d-flex line" id="bottom-line"></div>
                         <div class="d-flex flex-row w-100 align-items-center">
                             <h6 class="w-50 title am-right-4 mt-2">KP:</h6>
@@ -66,36 +132,36 @@
 
                     <div class="pos-rel d-flex flex-row align-items-center head">
                         <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" value="12"></input>
+                        <input class="border-0 value-box" id="head"></input>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center chest">
-                        <input class="border-0 value-box" value="11"></input>
+                        <input class="border-0 value-box" id="chest"></input>
                         <div class="d-flex target-line bg-dark" ></div>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center stomach">
                         <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" value="10"></input>
+                        <input class="border-0 value-box" id="stomach"></input>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center right-arm">
-                        <input class="border-0 value-box" value="9"></input>
+                        <input class="border-0 value-box" id="right-arm"></input>
                         <div class="d-flex target-line bg-dark" ></div>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center left-arm">
                         <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" value="8"></input>
+                        <input class="border-0 value-box" id="left-arm"></input>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center right-leg">
                         <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" value="7"></input>
+                        <input class="border-0 value-box" id="right-leg"></input>
                     </div>
 
                     <div class="pos-rel d-flex flex-row align-items-center left-leg">
-                        <input class="border-0 value-box" value="6"></input>
+                        <input class="border-0 value-box" id="left-leg"></input>
                         <div class="d-flex target-line bg-dark" ></div>
                     </div>
 
