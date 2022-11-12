@@ -1,24 +1,16 @@
 
 
-const healDialog = document.getElementById('heal-dialog');
+const actionDialog = document.getElementById('action-dialog');
 
-function openHealDialog() {
-  healDialog.showModal();
+function openActionDialog() {
+  actionDialog.showModal();
 }
 
-function closeHealDialog() {
-  healDialog.close();
+function closeActionDialog() {
+  actionDialog.close();
 }
 
-const damageDialog = document.getElementById('damage-dialog');
 
-function openDamageDialog() {
-  damageDialog.showModal();
-}
-
-function closeDamageDialog() {
-  damageDialog.close();
-}
 
 const statsDialog = document.getElementById('stats-dialog');
 
@@ -29,6 +21,30 @@ function openStatsDialog() {
 function closeStatsDialog() {
   statsDialog.close();
 }
+
+
+const inventoryDialog = document.getElementById('inventory-dialog');
+
+function openInventoryDialog() {
+  inventoryDialog.showModal();
+}
+
+function closeInventoryDialog() {
+  inventoryDialog.close();
+}
+
+
+const diceDialog = document.getElementById('dice-dialog');
+
+function openDiceDialog() {
+  diceDialog.showModal();
+}
+
+function closeDiceDialog() {
+  diceDialog.close();
+}
+
+
 
 
 
