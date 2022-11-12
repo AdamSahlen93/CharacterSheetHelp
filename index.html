@@ -113,7 +113,10 @@
         <!-- Character Sheet -->
         <div id="character_sheet">
             <div class="d-flex flex-column mt-4 justify-content-center align-items-center">
-                <div><i id="home_button" class="fa-solid fa-house fa-2xl pointer" onclick="showHome()"></i></div>
+                <div class="w-100 d-flex flex-row justify-content-around mt-2 ">
+                    <i id="home_button" class="fa-solid fa-house fa-2xl pointer" onclick="showHome()"></i>
+                    <i id="dice_button" class="fa-solid fa-dice fa-2xl pointer" onclick="openDiceDialog()"></i>
+                </div>
                 <div class="d-flex flex-row mt-5">
                     <div class="d-flex mx-4 "><img class="w-50 d-flex picture rounded border border-dark" id="picture"></img></div>
                     <div class="d-flex flex-column justify-content-center w-100">
@@ -125,14 +128,12 @@
                     </div>
                 </div>
 
-                <div class="d-flex flex-row mt-2">
+                <div class="d-flex flex-row mt-4 mx-4">
                     <h5 class="mr-5">Total Kp</h5>
                     <div id="kp"></div>
                 </div>
 
                 <div class="d-flex flex-column my-2 justify-content-center border border-dark bg-white p-4 rounded">
-
-
 
                     <div class="d-flex flex-row">
                         <h6 class="mr-5">Huvud</h6>
@@ -168,112 +169,81 @@
                         <h6 class="mr-3">Vänsterben</h6>
                         <div id="left-leg"></div>
                     </div>
-<!--                     
-                    <div class=" d-flex flex-row align-items-center head">
-                        <div class="d-flex target-line bg-dark" ></div>
-                        <input class="border-0 value-box" id="head"></input>
-                    </div> -->
- 
+
                 </div>
                 
                
                 
 
-                <div class="d-flex flex-row bodypart-grid">
-                    <button type="button" class="btn btn-success mx-2" onclick="openHealDialog()">Hela</button>
-                    <button type="button" class="btn btn-danger mx-2" onclick="openDamageDialog()">Skada</button>
-                    <button type="button" class="btn btn-warning mx-2" onclick="openStatsDialog()">Stats</button>
+                <div class="d-flex flex-row bodypart-grid my-3">
+                    <button type="button" class="btn btn-danger mx-2" onclick="openActionDialog()">Agerande</button>
+                    <button type="button" class="btn btn-info mx-2" onclick="openStatsDialog()">Stats</button>
+                    <button type="button" class="btn btn-warning mx-2" onclick="openInventoryDialog()">Utrustning</button>
                 </div> 
 
             </div>
             
 
-
-            
+   
         </div>
 
-        
- 
-    
-     
     </div>
 
-    <!-- HELA -->
-    <div>
-        <dialog class="" id="heal-dialog">
+  
+
+
+   
+     <!-- Stats -->
+
+     <div>
+        <dialog class="" id="action-dialog">
                 
             <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Hela din karaktär</h5>
-                <button onclick="closeHealDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
-            </div>
-                <form action="">
-                    
-                    <label for="bodyparts">Kroppsdel</label>
-                    <select id="bodyparts" name="bodypart">
-                        <option value="head">Huvud</option>
-                        <option value="chest">Bröstkorg</option>
-                        <option value="stomach">Mage</option>
-                        <option value="rigth-arm">Höger arm</option>
-                        <option value="left-arm">Vänster arm</option>
-                        <option value="right-leg">Höger ben</option>
-                        <option value="left-leg">Vänster ben</option>
-                    </select>
-
-                    <label for="quantity">Hela</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="30">
-
-                    <input class="mt-3" type="submit">
-
-                </form>
-
-
-
+                <h5>Dina Agerande</h5>
+                <button onclick="closeActionDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+            </div>             
+          
           </dialog>
     </div>
-
-    <!-- Skada -->
-
-    <div>
-        <dialog class="" id="damage-dialog">
-            <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Skada på din karaktär</h5>
-                <button onclick="closeDamageDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
-            </div>
-
-                <form action="">
-                    
-                    <label for="bodyparts">Kroppsdel</label>
-                    <select id="bodyparts" name="bodypart">
-                        <option value="head">Huvud</option>
-                        <option value="chest">Bröstkorg</option>
-                        <option value="stomach">Mage</option>
-                        <option value="rigth-arm">Höger arm</option>
-                        <option value="left-arm">Vänster arm</option>
-                        <option value="right-leg">Höger ben</option>
-                        <option value="left-leg">Vänster ben</option>
-                    </select>
-
-                    <label for="quantity">Skada</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="30">
-
-                    <input class="mt-3" type="submit">
-
-                </form>
-          </dialog>
-    </div>
-
-     <!-- Stats -->
+    
 
      <div>
         <dialog class="" id="stats-dialog">
                 
             <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Dina stats</h5>
+                <h5>Dina Stats</h5>
                 <button onclick="closeStatsDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
             </div>             
           
           </dialog>
     </div>
+
+    <div>
+        <dialog class="" id="inventory-dialog">
+                
+            <div class="d-flex flex-row justify-content-between mb-4">
+                <h5>Din Utrustning</h5>
+                <button onclick="closeInventoryDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+            </div>             
+          
+          </dialog>
+    </div>
+
+    <div>
+        <dialog class="" id="dice-dialog">
+                
+            <div class="d-flex flex-row justify-content-between mb-4">
+                <h5>Din Utrustning</h5>
+                <button onclick="closeDiceDialog()" class="x-button bg-primary border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+            </div>
+            
+            
+          
+          </dialog>
+    </div>
+    
+    
+
 
 
 
