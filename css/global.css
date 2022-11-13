@@ -54,3 +54,8 @@ body {
 .pos-rel {
     position: relative;
 }
+
+.dice {
+    height: 4rem;
+    width: 4rem;
+}

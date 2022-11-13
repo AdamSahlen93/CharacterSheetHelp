@@ -7,6 +7,7 @@ let character = [
         "firstname": "Tanana",
         "lastname": "den äldre",
         "color": "#9F2B68",
+        "checkboxClass": "checkbox-1",
         "scr": "./resources/tanana.jpg",
         "kp" : 8,
         "head": 4,
@@ -16,11 +17,43 @@ let character = [
         "leftarm": 3,
         "rightleg": 4,
         "leftleg": 4,
+        "wepons":[
+            {
+                "weponName": "Vandringsstav",
+                "damage": "1T6",
+                "weilding": "Du slår till din fiende med din vandringsstav",
+                "description": "En lång och knotig vandringsstav med lykta"
+            },
+        ],
+        "items": [
+            {
+                "itemName": "Hälsodryck",
+                "use": "Du återfår 1t6 av total KP",
+                "description": "En flaska innehållande en röd och bubblande vätska",
+                "quantity":"1"
+
+            },
+        ],
+        "clothes": [
+            {
+                "clothesName": "Tygtunika",
+                "absorbiton": "1KP i hela kroppen förutom huvud",
+                "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
+            },
+        ],
+        "cloth": [
+            {
+                "clothName": "Tygtunika",
+                "absorbiton": "1KP i hela kroppen förutom huvud",
+                "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
+            },
+        ]
     },
     {
         "firstname": "Jens",
         "lastname": "Nord",
         "color": "#50C878",
+        "checkboxClass": "checkbox-2",
         "scr": "./resources/jens.jpg",
         "kp" : 15,
         "head": 5,
@@ -35,6 +68,7 @@ let character = [
         "firstname": "Svarte",
         "lastname": "My",
         "color": "#8B0000",
+        "checkboxClass": "checkbox-3",
         "scr": "./resources/my.jpg",
         "kp" : 8,
         "head": 4,
@@ -49,6 +83,7 @@ let character = [
         "firstname": "Skritz",
         "lastname": "Cragnas",
         "color": "#C04000",
+        "checkboxClass": "checkbox-4",
         "scr": "./resources/crag.jpg",
         "kp" : 11,
         "head": 4,
@@ -63,6 +98,7 @@ let character = [
         "firstname": "Torbjörn",
         "lastname": "Haraldsson",
         "color": "#6F4E37",
+        "checkboxClass": "checkbox-5",
         "scr": "./resources/torbjörn.jpg",
         "kp" : 10,
         "head": 4,
@@ -74,9 +110,6 @@ let character = [
         "leftleg": 4,
     },
 ]
-
-
-
 
 
 function showHome() {
@@ -93,16 +126,15 @@ function showCharacter(index) {
     document.getElementById("lastname").value = character[index].lastname 
     document.getElementById("picture").src = character[index].scr
     document.getElementById("bottom-line").style.background = character[index].color
-
-
     
     if(session === 0) {
         let kpBox = document.getElementById("kp")
         for (i=0; i<character[index].kp; i++) {
             var input = document.createElement("input")
             input.type = "checkbox"
+            input.id="checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = "checkbox-kp"
             kpBox.appendChild(input)
             
         }
@@ -111,7 +143,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             headBox.appendChild(input)
             
         }
@@ -120,7 +152,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             chestBox.appendChild(input)
         }
         let stomachBox = document.getElementById("stomach")
@@ -128,7 +160,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             stomachBox.appendChild(input)
         }
         let rightarmBox = document.getElementById("rigth-arm")
@@ -136,7 +168,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             rightarmBox.appendChild(input)
         }
         let leftarmBox = document.getElementById("left-arm")
@@ -144,7 +176,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             leftarmBox.appendChild(input)
         }
         let rightlegBox = document.getElementById("rigth-leg")
@@ -152,7 +184,7 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             rightlegBox.appendChild(input)
         }
         let leftlegBox = document.getElementById("left-leg")
@@ -160,51 +192,12 @@ function showCharacter(index) {
             var input = document.createElement("input")
             input.type = "checkbox"
             input.defaultChecked = true
-            input.className = "checkbox";
+            input.className = character[index].checkboxClass;
             leftlegBox.appendChild(input)
         }
 
         session = 1
     } 
-
-
-
-
-
-
-    //document.getElementById("chest").value = character[index].chest
-
-
-
-
-
-    // document.getElementById("stomach").value = character[index].stomach
-    // document.getElementById("right-arm").value = character[index].rightarm
-    // document.getElementById("left-arm").value = character[index].leftarm
-    // document.getElementById("right-leg").value = character[index].rightleg
-    // document.getElementById("left-leg").value = character[index].leftleg
-
-    // let table = document.getElementById("basic_stats")
-
-    // var rowHead = table.insertRow(0)
-    // var rowChest = table.insertRow(1)
-    // var rowStomach = table.insertRow(2)
-
-    // var cell1_1 = rowHead.insertCell(0)
-    // var cell1_2 = rowHead.insertCell(1)
-    // var cell2_1 = rowChest.insertCell(0)
-    // var cell2_2 = rowChest.insertCell(1)
-    // var cell3_1 = rowStomach.insertCell(0)
-    // var cell3_2 = rowStomach.insertCell(1)
-
-    // cell1_1.innerHTML = "Head"
-    // cell1_2.innerHTML = character[index].head
-    // cell2_1.innerHTML = "Chest"
-    // cell2_2.innerHTML = character[index].chest
-    // cell3_1.innerHTML = "Stomach"
-    // cell3_2.innerHTML = character[index].stomach
-
-
 
 }
 
