@@ -42,13 +42,6 @@ let character = [
                 "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
             },
         ],
-        "cloth": [
-            {
-                "clothName": "Tygtunika",
-                "absorbiton": "1KP i hela kroppen förutom huvud",
-                "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
-            },
-        ],
         "spells": [
             {
                 "spellName": "Blixtar",
@@ -205,6 +198,15 @@ function showCharacter(index) {
             input.defaultChecked = true
             input.className = character[index].checkboxClass;
             leftlegBox.appendChild(input)
+        }
+        let powerBox = document.getElementById("kraftpoäng")
+        for (i=0; i<character[index].kp; i++) {
+            var input = document.createElement("input")
+            input.type = "checkbox"
+            input.id="checkbox"
+            input.defaultChecked = true
+            input.className = "checkbox-kraftpoäng"
+            powerBox.appendChild(input)
         }
 
         session = 1

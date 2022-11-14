@@ -123,9 +123,7 @@
                     <div class="d-flex flex-column justify-content-center w-100">
                         <input class="w-100 title border-0 title-box d-flex" id="firstname" readonly></input>
                         <input class="w-100 title border-0 title-box d-flex" id="lastname" readonly></input>
-                        <div class="w-75 d-flex line" id="bottom-line"></div>
-
-                        
+                        <div class="w-75 d-flex line" id="bottom-line"></div>  
                     </div>
                 </div>
 
@@ -172,66 +170,141 @@
                     </div>
 
                 </div>
-                
-               
-                
 
                 <div class="d-flex flex-row bodypart-grid my-4">
-                    <i id="home_button" class="fa-solid fa-hand-fist fa-2xl pointer mx-4" onclick="openActionDialog()"></i>
-                    <i id="home_button" class="fa-solid fa-list fa-2xl pointer mx-4" onclick="openStatsDialog()"></i>
-                    <i id="home_button" class="fa-solid fa-suitcase fa-2xl pointer mx-4" onclick="openInventoryDialog()"></i>
+                    <i id="action_button" class="fa-solid fa-hand-fist fa-2xl pointer mx-4" onclick="openActionDialog()"></i>
+                    <i id="stats_button" class="fa-solid fa-list fa-2xl pointer mx-4" onclick="openStatsDialog()"></i>
+                    <i id="inventory_button" class="fa-solid fa-suitcase fa-2xl pointer mx-4" onclick="openInventoryDialog()"></i>
                 </div> 
+
+                <div class="d-flex flex-row mt-2 mx-4">
+                    <h5 class="mr-5">Kraftpoäng</h5>
+                    <div id="kraftpoäng"></div>
+                </div>
 
             </div>
             
-
-   
         </div>
 
     </div>
 
   
-
-
-   
-     <!-- Stats -->
-
-     <div>
-        <dialog class="" id="action-dialog">
+    <!-- ACTIONS -->
+    <div>
+        <dialog class="w-100 rounded" id="action-dialog">
                 
-            <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Dina Agerande</h5>
-                <button onclick="closeActionDialog()" class="x-button bg-dark border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
-            </div>             
-          
+            <div class="d-flex flex-column justify-content-between mb-4">
+         
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
+                    <h4>Stridsfärdigheter</h4>
+                    <button onclick="closeActionDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+                </div>
+
+                <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
+
+                <div id="progress">
+                    <div id="progress-container" class="d-flex flex-column">
+        
+                        <div class="d-flex flex-column mx-3 mb-2 ">
+                            <div class="d-flex flex-column mb-4 bg-white justify-content-center">
+                                <div class="d-flex justify-content-between align-items-center pt-2 text-white w-100 bg-purple rounded-top">
+                                    <h6 class="ml-3">Stavslag</h6>
+                                    <div class="mr-3 border border-light rounded mb-2">
+                                        <p class="px-2 quick-damage">2T6</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column bg-white justify-content-center px-2 rounded-bottom border border-dark w-100">
+                                        <div class="d-flex flex-row justify-content-end pt-2 card-container my-1">
+                                            <i id="showMastermind" onclick="showMoreMastermind()" class="fa-solid fa-xl fa-angle-down"></i>
+                                        </div>
+                                        <div id="moreMastermind">
+                                            <div class="d-flex flex-row justify-content-between">
+                                                <p class="">Du attackerar fienden med din vandringsstav</p>
+                                                <i id="hideMastermind" onclick="hideMoreMastermind()" class="fa-solid fa-xl fa-angle-up"></i> 
+                                            </div>
+                                        </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+
           </dialog>
     </div>
     
-
-     <div>
-        <dialog class="" id="stats-dialog">
+    <!-- STATS -->
+    <div>
+        <dialog class="w-100 rounded" id="stats-dialog">
                 
-            <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Dina Stats</h5>
-                <button onclick="closeStatsDialog()" class="x-button bg-dark border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
-            </div>             
-          
+            <div class="d-flex flex-column justify-content-between mb-4">
+         
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
+                    <h4>Stats</h4>
+                    <button onclick="closeStatsDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+                </div>
+
+                <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
+
+                <div class="d-flex flex-column">
+                    <table>
+                        <tr>
+                          <td>Styrka</td>
+                          <td>12</td>
+                        </tr>
+                        <tr>
+                          <td>Smidighet</td>
+                          <td>14</td>
+                        </tr>
+                      </table>
+                      
+                </div>
+                    
+            </div>
+
+          </dialog>
+    </div>
+
+    <!-- INVENTORY -->
+    <div>
+        <dialog class="w-100 rounded" id="inventory-dialog">
+                
+            <div class="d-flex flex-column justify-content-between mb-4">
+         
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
+                    <h4>Utrustning</h4>
+                    <button onclick="closeInventoryDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
+                </div>
+
+                <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
+                
+                <div class="d-flex flex-column">
+                    <h5 class="d-flex">Kläder</h5>
+                    <div class="d-flex justify-content-between align-items-center pt-2 text-white w-100 bg-purple rounded-top">
+                        <h6 class="ml-3">Tygtunika</h6>
+                        <div class="d-flex flex-row mr-3 border border-light rounded mb-2">
+                            <p class="px-2 quick-damage">Absorbtion:</p>
+                            <p class="px-2 quick-damage">1</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column bg-white justify-content-center align-items-center px-2 rounded-bottom border border-dark w-100 mb-2">
+                          <p class="mt-1">Bröst, Armar, Ben</p>
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex flex-column">
+                    <h5 class="d-flex">Föremål</h5>
+                    <p class="d-flex flex-column" id="clothes-box"></p>
+                </div>
+                    
+            </div>
+
           </dialog>
     </div>
 
     <div>
-        <dialog class="" id="inventory-dialog">
-                
-            <div class="d-flex flex-row justify-content-between mb-4">
-                <h5>Din Utrustning</h5>
-                <button onclick="closeInventoryDialog()" class="x-button bg-dark border-rounded border text-white"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
-            </div>             
-          
-          </dialog>
-    </div>
-
-    <div>
-        <dialog class="w-100" id="dice-dialog">
+        <dialog class="w-100 rounded" id="dice-dialog">
                 
             <div class="d-flex flex-column justify-content-between mb-4">
                 <div class="d-flex flex-row w-100 justify-content-between">
@@ -240,11 +313,12 @@
                 </div>
                 <div class="d-flex flex-column my-3">
                     <button class="btn bg-brown border-rounded border text-white my-2" onclick="rollT4()">T4</button>
-                    <button class="btn bg-warning border-rounded border text-white my-2">T6</button>
-                    <button class="btn bg-info border-rounded border text-white my-2">T8</button>
-                    <button class="btn bg-success border-rounded border text-white my-2">T10</button>
-                    <button class="btn bg-danger border-rounded border text-white my-2">T20</button>
-                    <button class="btn bg-dark border-rounded border text-white my-2">T100</button>
+                    <button class="btn bg-warning border-rounded border text-white my-2" onclick="rollT6()">T6</button>
+                    <button class="btn bg-info border-rounded border text-white my-2" onclick="rollT8()">T8</button>
+                    <button class="btn bg-success border-rounded border text-white my-2" onclick="rollT10()">T10</button>
+                    <button class="btn bg-orange border-rounded border text-white my-2" onclick="rollT12()">T12</button>
+                    <button class="btn bg-danger border-rounded border text-white my-2" onclick="rollT20()">T20</button>
+                    <button class="btn bg-dark border-rounded border text-white my-2" onclick="rollT100()">T100</button>
                 </div>
                 <div class="my-3 d-flex justify-content-center">
                     <div id="dice" class="d-flex dice bg-dark justify-content-center align-items-center rounded">
@@ -260,6 +334,7 @@
     <script src="./js/DOM.js"></script>
     <script src="./js/dialog.js"></script>
     <script src="./js/dice.js"></script>
+    <script src="./js/cards.js"></script>
     
 </body>
 </html>
