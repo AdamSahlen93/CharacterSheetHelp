@@ -20,7 +20,8 @@ let character = [
         "wepons":[
             {
                 "weponName": "Vandringsstav",
-                "damage": "1T6",
+                "dice": 6,
+                "amount": 1,
                 "weilding": "Du slår till din fiende med din vandringsstav",
                 "description": "En lång och knotig vandringsstav med lykta"
             },
@@ -46,6 +47,16 @@ let character = [
                 "clothName": "Tygtunika",
                 "absorbiton": "1KP i hela kroppen förutom huvud",
                 "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
+            },
+        ],
+        "spells": [
+            {
+                "spellName": "Blixtar",
+                "cost": "Psyke",
+                "dice": 6,
+                "amount": 1,
+                "description": "Du framkallar blixtar som träffar en motståndare upp till 25 meter bort",
+                "additional": "Skadetärningarnas antal ökar per spenderat psyke"
             },
         ]
     },
