@@ -91,3 +91,12 @@ input[type="checkbox"]:checked + label::after {
     margin-right: 3.4rem;
 }
 
+.checkbox-kraftpoäng {
+    height: 20px;
+    width: 20px;
+    margin-right: 0.3rem;
+    accent-color: blue; 
+    border: 3px solid blue;
+    
+}
+
