@@ -2,118 +2,145 @@ showHome()
 
 let session = 0;
 
-let character = [
-    {
-        "firstname": "Tanana",
-        "lastname": "den äldre",
-        "color": "#9F2B68",
-        "checkboxClass": "checkbox-1",
-        "scr": "./resources/tanana.jpg",
-        "kp" : 8,
-        "head": 4,
-        "chest": 5,
-        "stomach": 4,
-        "rightarm": 3,
-        "leftarm": 3,
-        "rightleg": 4,
-        "leftleg": 4,
-        "wepons":[
-            {
-                "weponName": "Vandringsstav",
-                "dice": 6,
-                "amount": 1,
-                "weilding": "Du slår till din fiende med din vandringsstav",
-                "description": "En lång och knotig vandringsstav med lykta"
-            },
-        ],
-        "items": [
-            {
-                "itemName": "Hälsodryck",
-                "use": "Du återfår 1t6 av total KP",
-                "description": "En flaska innehållande en röd och bubblande vätska",
-                "quantity":"1"
+function readSingleFile(e) {
+    var file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var contents = e.target.result;
+      displayContents(contents);
+      
+    };
+    reader.readAsText(file);
+    showCharacter()
+    
+  }
+  
+  function displayContents(contents) {
+    parse(contents);
+  }
+  
+  document.getElementById('file-input')
+    .addEventListener('change', readSingleFile, false);
+   
+    
+  var xmlDoc;
 
-            },
-        ],
-        "clothes": [
-            {
-                "clothesName": "Tygtunika",
-                "absorbiton": "1KP i hela kroppen förutom huvud",
-                "description": "En gammal tunika som har sett sina bästa dagar, vilken färg den en gång varit är omöjligt att säga",
-            },
-        ],
-        "spells": [
-            {
-                "spellName": "Blixtar",
-                "cost": "Psyke",
-                "dice": 6,
-                "amount": 1,
-                "description": "Du framkallar blixtar som träffar en motståndare upp till 25 meter bort",
-                "additional": "Skadetärningarnas antal ökar per spenderat psyke"
-            },
-        ]
-    },
-    {
-        "firstname": "Jens",
-        "lastname": "Nord",
-        "color": "#50C878",
-        "checkboxClass": "checkbox-2",
-        "scr": "./resources/jens.jpg",
-        "kp" : 15,
-        "head": 5,
-        "chest": 6,
-        "stomach": 5,
-        "rightarm": 4,
-        "leftarm": 4,
-        "rightleg": 5,
-        "leftleg": 5,
-    },
-    {
-        "firstname": "Svarte",
-        "lastname": "My",
-        "color": "#8B0000",
-        "checkboxClass": "checkbox-3",
-        "scr": "./resources/my.jpg",
-        "kp" : 8,
-        "head": 4,
-        "chest": 5,
-        "stomach": 4,
-        "rightarm": 3,
-        "leftarm": 3,
-        "rightleg": 4,
-        "leftleg": 4,
-    },
-    {
-        "firstname": "Skritz",
-        "lastname": "Cragnas",
-        "color": "#C04000",
-        "checkboxClass": "checkbox-4",
-        "scr": "./resources/crag.jpg",
-        "kp" : 11,
-        "head": 4,
-        "chest": 5,
-        "stomach": 4,
-        "rightarm": 3,
-        "leftarm": 3,
-        "rightleg": 4,
-        "leftleg": 4,
-    },
-    {
-        "firstname": "Torbjörn",
-        "lastname": "Haraldsson",
-        "color": "#6F4E37",
-        "checkboxClass": "checkbox-5",
-        "scr": "./resources/torbjörn.jpg",
-        "kp" : 10,
-        "head": 4,
-        "chest": 5,
-        "stomach": 4,
-        "rightarm": 3,
-        "leftarm": 3,
-        "rightleg": 4,
-        "leftleg": 4,
-    },
-]
+  function parse(content){
+    //Create a parser
+    var parser = new DOMParser();
+    xmlDoc = parser.parseFromString(content,"text/xml");
+    //Parse!
+    document.getElementById("firstname").value = xmlDoc.evaluate("//firstname",xmlDoc).iterateNext().textContent;
+    document.getElementById("lastname").value = xmlDoc.evaluate("//lastname",xmlDoc).iterateNext().textContent;
+    document.getElementById("picture").src = xmlDoc.evaluate("//picture",xmlDoc).iterateNext().textContent;
+    document.getElementById("bottom-line").style.background = xmlDoc.evaluate("//color",xmlDoc).iterateNext().textContent;
+    document.getElementById("intelligenceValue").innerText = xmlDoc.evaluate("//intelligence", xmlDoc).iterateNext().textContent;
+    document.getElementById("agilityValue").innerText = xmlDoc.evaluate("//agility", xmlDoc).iterateNext().textContent;
+    document.getElementById("psycheValue").innerText = xmlDoc.evaluate("//psyche", xmlDoc).iterateNext().textContent;
+    document.getElementById("strenghtValue").innerText = xmlDoc.evaluate("//strength", xmlDoc).iterateNext().textContent;
+    document.getElementById("charismaValue").innerText = xmlDoc.evaluate("//charisma", xmlDoc).iterateNext().textContent;
+    document.getElementById("physiqueValue").innerText = xmlDoc.evaluate("//physique", xmlDoc).iterateNext().textContent;
+    document.getElementById("sizeValue").innerText = xmlDoc.evaluate("//size", xmlDoc).iterateNext().textContent;
+    document.getElementById("perceiptionValue").innerText = xmlDoc.evaluate("//perceiption", xmlDoc).iterateNext().textContent;
+    let checkbox = xmlDoc.evaluate("//checkboxClass", xmlDoc).iterateNext().textContent;
+
+    let totalKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'total')]/max" ,xmlDoc).iterateNext().textContent
+    let kpBox = document.getElementById("kp")
+    for (i=0; i<totalKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.id="checkbox"
+        input.defaultChecked = true
+        input.className = "checkbox-kp"
+        kpBox.appendChild(input)
+    }
+
+    let headKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'head')]/max" ,xmlDoc).iterateNext().textContent
+    let headBox = document.getElementById("head")
+    for (i=0; i<headKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        headBox.appendChild(input)
+        
+    }
+
+    let chestKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'chest')]/max" ,xmlDoc).iterateNext().textContent
+    let chestBox = document.getElementById("chest")
+    for (i=0; i<chestKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        chestBox.appendChild(input)
+    }
+
+    let stomachKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'stomach')]/max" ,xmlDoc).iterateNext().textContent
+    let stomachBox = document.getElementById("stomach")
+    for (i=0; i<stomachKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        stomachBox.appendChild(input)
+    }
+
+    let rightArmKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'right-arm')]/max" ,xmlDoc).iterateNext().textContent
+    let rightarmBox = document.getElementById("rigth-arm")
+    for (i=0; i<rightArmKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        rightarmBox.appendChild(input)
+    }
+
+    let leftArmKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'left-arm')]/max" ,xmlDoc).iterateNext().textContent
+    let leftarmBox = document.getElementById("left-arm")
+    for (i=0; i<leftArmKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        leftarmBox.appendChild(input)
+    }
+
+    let rightLegKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'right-leg')]/max" ,xmlDoc).iterateNext().textContent
+    let rightlegBox = document.getElementById("rigth-leg")
+    for (i=0; i<rightLegKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        rightlegBox.appendChild(input)
+    }
+
+    let leftLegKpValue = xmlDoc.evaluate("//bodypart[contains(@id,'left-leg')]/max" ,xmlDoc).iterateNext().textContent
+    let leftlegBox = document.getElementById("left-leg")
+    for (i=0; i<leftLegKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.defaultChecked = true
+        input.className = checkbox
+        leftlegBox.appendChild(input)
+    }
+
+    let psycheKpValue = xmlDoc.evaluate("//psyche" ,xmlDoc).iterateNext().textContent
+    let powerBox = document.getElementById("kraftpoäng")
+    for (i=0; i<psycheKpValue; i++) {
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.id="checkbox"
+        input.defaultChecked = true
+        input.className = "checkbox-kraftpoäng"
+        powerBox.appendChild(input)
+    }
+
+}
 
 
 function showHome() {
@@ -122,103 +149,15 @@ function showHome() {
 }
 
 
-function showCharacter(index) {
+function showCharacter() {
    
     document.getElementById("home").style.display = "none"
     document.getElementById("character_sheet").style.display = "block"
-    document.getElementById("firstname").value = character[index].firstname 
-    document.getElementById("lastname").value = character[index].lastname 
-    document.getElementById("picture").src = character[index].scr
-    document.getElementById("bottom-line").style.background = character[index].color
-    
-    if(session === 0) {
-        let kpBox = document.getElementById("kp")
-        for (i=0; i<character[index].kp; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.id="checkbox"
-            input.defaultChecked = true
-            input.className = "checkbox-kp"
-            kpBox.appendChild(input)
-            
-        }
-        let headBox = document.getElementById("head")
-        for (i=0; i<character[index].head; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            headBox.appendChild(input)
-            
-        }
-        let chestBox = document.getElementById("chest")
-        for (i=0; i<character[index].chest; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            chestBox.appendChild(input)
-        }
-        let stomachBox = document.getElementById("stomach")
-        for (i=0; i<character[index].stomach; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            stomachBox.appendChild(input)
-        }
-        let rightarmBox = document.getElementById("rigth-arm")
-        for (i=0; i<character[index].rightarm; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            rightarmBox.appendChild(input)
-        }
-        let leftarmBox = document.getElementById("left-arm")
-        for (i=0; i<character[index].leftarm; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            leftarmBox.appendChild(input)
-        }
-        let rightlegBox = document.getElementById("rigth-leg")
-        for (i=0; i<character[index].rightleg; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            rightlegBox.appendChild(input)
-        }
-        let leftlegBox = document.getElementById("left-leg")
-        for (i=0; i<character[index].leftleg; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.defaultChecked = true
-            input.className = character[index].checkboxClass;
-            leftlegBox.appendChild(input)
-        }
-        let powerBox = document.getElementById("kraftpoäng")
-        for (i=0; i<character[index].kp; i++) {
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.id="checkbox"
-            input.defaultChecked = true
-            input.className = "checkbox-kraftpoäng"
-            powerBox.appendChild(input)
-        }
 
-        session = 1
-    } 
 
 }
 
 
-
-function addKp() {
-
-}
 
 
 
