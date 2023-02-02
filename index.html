@@ -112,38 +112,16 @@
                 
             <div class="d-flex flex-column justify-content-between mb-4">
          
-                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
-                    <h4>Stridsfärdigheter</h4>
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                    <h4 class="pt-3">Stridsfärdigheter</h4>
                     <button onclick="closeActionDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
                 </div>
 
                 <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
 
                 <div id="progress">
-                    <div id="progress-container" class="d-flex flex-column">
-        
-                        <div class="d-flex flex-column mx-3 mb-2 ">
-                            <div class="d-flex flex-column mb-4 bg-white justify-content-center">
-                                <div class="d-flex justify-content-between align-items-center pt-2 text-white w-100 bg-purple rounded-top">
-                                    <h6 class="ml-3">Stavslag</h6>
-                                    <div class="mr-3 border border-light rounded mb-2">
-                                        <p class="px-2 quick-damage">2T6</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-column bg-white justify-content-center px-2 rounded-bottom border border-dark w-100">
-                                        <div class="d-flex flex-row justify-content-end pt-2 card-container my-1">
-                                            <i id="showMastermind" onclick="showMoreMastermind()" class="fa-solid fa-xl fa-angle-down"></i>
-                                        </div>
-                                        <div id="moreMastermind">
-                                            <div class="d-flex flex-row justify-content-between">
-                                                <p class="">Du attackerar fienden med din vandringsstav</p>
-                                                <i id="hideMastermind" onclick="hideMoreMastermind()" class="fa-solid fa-xl fa-angle-up"></i> 
-                                            </div>
-                                        </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    
+                </div>
                     
             </div>
 
@@ -156,14 +134,15 @@
                 
             <div class="d-flex flex-column justify-content-between mb-4">
          
-                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
-                    <h4>Stats</h4>
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                    <h4 class="pt-3">Stats</h4>
                     <button onclick="closeStatsDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
                 </div>
 
                 <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
 
                 <div class="d-flex flex-column">
+                    <h5>Grundegenskaper</h5>
                     <table>
                         <tr>
                           <td>Intelligens</td>
@@ -198,6 +177,37 @@
                             <td id="perceiptionValue"></td>
                           </tr>
                       </table>
+                      <h5 class="mt-4">Specialegenskaper</h5>
+                      <table>
+                        <tr>
+                          <td id="specName1"></td>
+                          <td id="specValue1"></td>
+                        </tr>
+                        <tr>
+                            <td id="specName2"></td>
+                            <td id="specValue2"></td>
+                        </tr>
+                        <tr>
+                            <td id="specName3"></td>
+                            <td id="specValue3"></td>
+                          </tr>
+                          <tr>
+                            <td id="specName4"></td>
+                            <td id="specValue4"></td>
+                          </tr>
+                          <tr>
+                            <td id="specName5"></td>
+                            <td id="specValue5"></td>
+                          </tr>
+                          <tr>
+                            <td id="specName6"></td>
+                            <td id="specValue6"></td>
+                          </tr>
+                          <tr>
+                            <td id="specName7"></td>
+                            <td id="specValue7"></td>
+                          </tr>
+                      </table>
                       
                 </div>
                     
@@ -212,33 +222,19 @@
                 
             <div class="d-flex flex-column justify-content-between mb-4">
          
-                <div class="d-flex flex-row w-100 justify-content-between align-items-center my-2">
-                    <h4>Utrustning</h4>
+                <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                    <h4 class="pt-3">Utrustning</h4>
                     <button onclick="closeInventoryDialog()" class="x-button bg-dark border-rounded border text-white py-2"> <div class="d-flex flex-row"><i class="fa-solid fa-x "></i></div></button>
                 </div>
 
                 <div class="mt-1 mb-4 w-100 d-flex line bg-dark" id="bottom-line"></div>
                 
-                <div class="d-flex flex-column">
-                    <h5 class="d-flex">Kläder</h5>
-                    <div class="d-flex justify-content-between align-items-center pt-2 text-white w-100 bg-purple rounded-top">
-                        <h6 class="ml-3">Tygtunika</h6>
-                        <div class="d-flex flex-row mr-3 border border-light rounded mb-2">
-                            <p class="px-2 quick-damage">Absorbtion:</p>
-                            <p class="px-2 quick-damage">1</p>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column bg-white justify-content-center align-items-center px-2 rounded-bottom border border-dark w-100 mb-2">
-                          <p class="mt-1">Bröst, Armar, Ben</p>
-                    </div>
+                <div id="bag">
+                    
                     
                 </div>
 
-                <div class="d-flex flex-column">
-                    <h5 class="d-flex">Föremål</h5>
-                    <p class="d-flex flex-column" id="clothes-box"></p>
-                </div>
-                    
+                
             </div>
 
           </dialog>
